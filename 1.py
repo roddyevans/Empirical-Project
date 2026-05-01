@@ -30,10 +30,10 @@ Patrick Cantlay,32,29,-0.12,0.59,0.60,0.53,1.13,1.72,1.58"""
 
 df = pd.read_csv(StringIO(raw))
 
-# Augusta - OTT + approach dominant
-# Aronimink - approach + accuracy dominant
-# Shinnecock - approach + patience, penalises OTT aggression
-# Royal Birkdale - putting + OTT wind game
+# Augusta - OTT + approach
+# Aronimink - approach + accuracy
+# Shinnecock - approach + OTT
+# Royal Birkdale - putting + OTT
 
 course_weights = {
     "Masters": {
@@ -85,7 +85,7 @@ for major, weights in course_weights.items():
 
 #Show predicitons
 print("=" * 65)
-print("  2026 GOLF MAJOR PREDICTIONS — BASED ON 2026 DATAGOLF SG DATA")
+print("2026 Golf Major Predictions")
 print("=" * 65)
 
 for major, res in all_results.items():
@@ -100,7 +100,7 @@ for major, res in all_results.items():
 
 #Graph
 fig, axes = plt.subplots(2, 2, figsize=(16, 12))
-fig.suptitle("2026 Golf Major Predictions\nBased on 2026 DataGolf Strokes Gained Data",
+fig.suptitle("2026 Golf Major Predictions",
              fontsize=15, fontweight="bold", y=0.98)
 
 subtitles = [
@@ -151,7 +151,7 @@ print("\nChart saved as major_predictions.png")
 
 #Correlation
 print(f"\n{'=' * 65}")
-print("  CORRELATION: SG CATEGORIES vs SG TOTAL")
+print("SG Categories vs SG Total")
 print(f"{'=' * 65}")
 
 sg_cols = ["sg_putt", "sg_arg", "sg_app", "sg_ott", "sg_ball_striking", "sg_t2g"]
@@ -168,18 +168,18 @@ for col in sg_cols:
 
 
 
-#import pandas as pd
-#from io import StringIO
-#from sklearn.linear_model import LinearRegression
+import pandas as pd
+from io import StringIO
+from sklearn.linear_model import LinearRegression
 
-#X = df[["sg_putt", "sg_ball_striking"]]
-#y = df["sg_total"]
+X = df[["sg_putt", "sg_ball_striking"]]
+y = df["sg_total"]
 
-#model = LinearRegression().fit(X, y)
-#print("Coefficients:")
-#for name, coef in zip(X.columns, model.coef_):
-    #print(f"  {name}: {coef:.3f}")
-#print(f"R²: {model.score(X, y):.3f}")
+model = LinearRegression().fit(X, y)
+print("Coefficients:")
+for name, coef in zip(X.columns, model.coef_):
+    print(f"  {name}: {coef:.3f}")
+print(f"R²: {model.score(X, y):.3f}")
 
 
 
@@ -221,10 +221,10 @@ Jordan Spieth,68,68,0.30,0.24,0.26,0.45,0.71,0.95,1.25"""
 
 df = pd.read_csv(StringIO(raw))
 
-# Augusta - OTT + approach dominant
-# Quail Hollow - approach + ball striking dominant
-# Oakmont - approach + patience, penalises OTT aggression
-# Royal Portrush - putting + OTT wind game
+# Augusta - OTT + approach
+# Quail Hollow - approach + ball striking
+# Oakmont - approach + OTT
+# Royal Portrush - putting + OTT
 
 course_weights = {
     "Masters": {
@@ -277,7 +277,7 @@ for major, weights in course_weights.items():
 
 #Show predictions
 print("=" * 65)
-print("  2025 GOLF MAJOR PREDICTIONS — BASED ON 2025 DATAGOLF SG DATA")
+print("2025 Golf Major Predictions")
 print("=" * 65)
 
 for major, res in all_results.items():
@@ -292,7 +292,7 @@ for major, res in all_results.items():
 
 #Graph
 fig, axes = plt.subplots(2, 2, figsize=(16, 12))
-fig.suptitle("2025 Golf Major Predictions\nBased on 2025 DataGolf Strokes Gained Data",
+fig.suptitle("2025 Golf Major Predictions",
              fontsize=15, fontweight="bold", y=0.98)
 
 subtitles = [
@@ -343,7 +343,7 @@ print("\nChart saved as major_predictions_2025.png")
 
 #Correlation
 print(f"\n{'=' * 65}")
-print("  CORRELATION: SG CATEGORIES vs SG TOTAL")
+print("SG Categories vs SG Total")
 print(f"{'=' * 65}")
 
 sg_cols = ["sg_putt", "sg_arg", "sg_app", "sg_ott", "sg_ball_striking", "sg_t2g"]
